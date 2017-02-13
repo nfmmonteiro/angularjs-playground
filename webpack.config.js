@@ -1,5 +1,9 @@
 let webpack = require('webpack');
 let path = require('path');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
+
+let distFolder = path.resolve(__dirname, 'dist');
+let indexFile = path.resolve(__dirname, 'index.html');
 
 const config = {
     entry: {
@@ -7,8 +11,8 @@ const config = {
         vendors: ['./node_modules/angular/angular.js']
     },
     output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        filename: '[name].[hash].bundle.js',
+        path: distFolder
     },
     devtool: 'source-map',
     module: {
@@ -20,6 +24,7 @@ const config = {
             },
             {
                 test: /\.html$/,
+                exclude: indexFile,
                 loader: "ng-cache-loader?prefix=[dir]/[dir]"
             }
         ]
@@ -28,6 +33,10 @@ const config = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendors',
             minChunks: Infinity
+        }),
+        new HtmlWebpackPlugin({
+            template: indexFile,
+            inject: 'body'
         })
     ]
 };
