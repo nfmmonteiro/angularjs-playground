@@ -22,6 +22,12 @@ const config = {
     module: {
         rules: [
             {
+                enforce: 'pre',
+                test: /\.js$/,
+                include: [ PATHS.srcDir ],
+                use: 'jshint-loader'
+            },
+            {
                 test: /\.js$/,
                 include: [ PATHS.srcDir ],
                 use: 'babel-loader'
