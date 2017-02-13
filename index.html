@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Playground</title>
+</head>
+<body>
+
+    <div ng-app="helloApp" ng-controller="helloController">
+        <div ng-bind="::message"></div>
+    </div>
+
+    <script src="dist/vendors.bundle.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var helloApp = angular.module('helloApp', []);
+
+        helloApp.controller('helloController', ['$scope', function($scope) {
+            $scope.message = 'Hello, world!';
+        }]);
+
+    </script>
+</body>
+</html>
