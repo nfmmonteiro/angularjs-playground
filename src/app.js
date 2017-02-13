@@ -1,7 +1,7 @@
-class Person {
-    sayHi() {
-        console.log('Hello ES6!');
-    }
-}
+import angular from 'angular';
 
-new Person().sayHi();
+const helloApp = angular.module('helloApp', []);
+
+helloApp.controller('helloController', ['$scope', function($scope) {
+    $scope.message = 'Hello, world!';
+}]);
