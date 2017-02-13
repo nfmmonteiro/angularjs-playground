@@ -1,0 +1,21 @@
+{
+  "name": "angular-js-playground",
+  "version": "1.0.0",
+  "description": "AngularJS playground project",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nfmmonteiro/angularjs-playground.git"
+  },
+  "keywords": [],
+  "author": "Nuno Monteiro <nfmmonteiro@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nfmmonteiro/angularjs-playground/issues"
+  },
+  "homepage": "https://github.com/nfmmonteiro/angularjs-playground#readme",
+  "devDependencies": {
+    "angular": "^1.6.2"
+  }
+}
