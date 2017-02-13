@@ -1,7 +1,6 @@
 import angular from 'angular';
+import helloComponent from './components/hello/hello.component';
 
 const helloApp = angular.module('helloApp', []);
 
-helloApp.controller('helloController', ['$scope', function($scope) {
-    $scope.message = 'Hello, world!';
-}]);
+helloApp.component('helloComponent', helloComponent);

@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <title>AngularJS Playground</title>
 </head>
-<body>
+<body ng-app="helloApp">
 
-    <div ng-app="helloApp" ng-controller="helloController">
-        <div ng-bind="::message"></div>
-    </div>
+    <hello-component name="John Papa"></hello-component>
 
     <script src="dist/vendors.bundle.js" type="text/javascript"></script>
     <script src="dist/app.bundle.js" type="text/javascript"></script>
