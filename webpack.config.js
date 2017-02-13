@@ -18,7 +18,13 @@ const config = {
                 use: 'babel-loader'
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendors',
+            minChunks: Infinity
+        })
+    ]
 };
 
 module.exports = config;
