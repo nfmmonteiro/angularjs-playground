@@ -1,6 +1,7 @@
 let webpack = require('webpack');
 let path = require('path');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
+let CleanWebpackPlugin = require('clean-webpack-plugin');
 
 let distFolder = path.resolve(__dirname, 'dist');
 let indexFile = path.resolve(__dirname, 'index.html');
@@ -30,6 +31,7 @@ const config = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin([distFolder]),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendors',
             minChunks: Infinity
