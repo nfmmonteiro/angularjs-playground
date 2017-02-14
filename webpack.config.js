@@ -17,7 +17,11 @@ const PATHS = {
 const config = {
     entry: {
         app: './src/app.js',
-        vendors: ['./node_modules/angular/angular.js', './node_modules/angular-animate/angular-animate.js']
+        vendors: [
+            './node_modules/angular/angular.js',
+            './node_modules/angular-animate/angular-animate.js',
+            './node_modules/angular-ui-bootstrap/index.js'
+        ]
     },
     output: {
         filename: '[name].[hash].bundle.js',
