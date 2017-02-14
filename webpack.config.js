@@ -3,11 +3,13 @@ let path = require('path');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 let CleanWebpackPlugin = require('clean-webpack-plugin');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
+let UglifyJsPlugin = require('webpack-uglify-js-plugin');
 
 const PATHS = {
     srcDir: path.resolve(__dirname, 'src'),
     distDir: path.resolve(__dirname, 'dist'),
-    indexFile: path.resolve(__dirname, 'index.html')
+    indexFile: path.resolve(__dirname, 'index.html'),
+    uglifyCacheDir: path.resolve(__dirname, 'dist/cached_uglify/')
 };
 
 const config = {
@@ -55,6 +57,16 @@ const config = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendors',
             minChunks: Infinity
+        }),
+        new UglifyJsPlugin({
+            cacheFolder: PATHS.uglifyCacheDir,
+            minimize: true,
+            output: {
+                comments: false
+            },
+            compressor: {
+                warnings: false
+            }
         }),
         new HtmlWebpackPlugin({
             template: PATHS.indexFile,

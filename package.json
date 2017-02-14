@@ -38,6 +38,7 @@
     "ng-cache-loader": "0.0.23",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.3.0"
+    "webpack-dev-server": "^2.3.0",
+    "webpack-uglify-js-plugin": "^1.1.9"
   }
 }
