@@ -5,6 +5,8 @@ let CleanWebpackPlugin = require('clean-webpack-plugin');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 let UglifyJsPlugin = require('webpack-uglify-js-plugin');
 
+console.log('NODE_ENV:', process.env.NODE_ENV);
+
 const PATHS = {
     srcDir: path.resolve(__dirname, 'src'),
     distDir: path.resolve(__dirname, 'dist'),
@@ -37,7 +39,7 @@ const config = {
             },
             {
                 test: /\.html$/,
-                exclude: PATHS.indexFile,
+                include: [ PATHS.srcDir ],
                 loader: 'ng-cache-loader?prefix=[dir]/[dir]'
             },
             {
@@ -53,20 +55,9 @@ const config = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin([ PATHS.distDir ]),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendors',
             minChunks: Infinity
-        }),
-        new UglifyJsPlugin({
-            cacheFolder: PATHS.uglifyCacheDir,
-            minimize: true,
-            output: {
-                comments: false
-            },
-            compressor: {
-                warnings: false
-            }
         }),
         new HtmlWebpackPlugin({
             template: PATHS.indexFile,
@@ -75,5 +66,19 @@ const config = {
         new ExtractTextPlugin('styles.css')
     ]
 };
+
+if (process.env.NODE_ENV == 'prod') {
+    config.plugins.unshift(new CleanWebpackPlugin([ PATHS.distDir ]));
+    config.plugins.push(new UglifyJsPlugin({
+        cacheFolder: PATHS.uglifyCacheDir,
+        minimize: true,
+        output: {
+            comments: false
+        },
+        compressor: {
+            warnings: false
+        }
+    }));
+}
 
 module.exports = config;
