@@ -2,6 +2,7 @@ let webpack = require('webpack');
 let path = require('path');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 let CleanWebpackPlugin = require('clean-webpack-plugin');
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const PATHS = {
     srcDir: path.resolve(__dirname, 'src'),
@@ -35,7 +36,17 @@ const config = {
             {
                 test: /\.html$/,
                 exclude: PATHS.indexFile,
-                loader: "ng-cache-loader?prefix=[dir]/[dir]"
+                loader: 'ng-cache-loader?prefix=[dir]/[dir]'
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    use: 'css-loader'
+                })
+            },
+            {
+                test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
+                use: 'url-loader?name=[name]-[hash].[ext]'
             }
         ]
     },
@@ -48,7 +59,8 @@ const config = {
         new HtmlWebpackPlugin({
             template: PATHS.indexFile,
             inject: 'body'
-        })
+        }),
+        new ExtractTextPlugin('styles.css')
     ]
 };
 
