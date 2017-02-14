@@ -1,0 +1,16 @@
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+    <th>#</th>
+    <th>Country</th>
+    <th>Language</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="country in ::$ctrl.countries">
+            <td ng-bind="::$index"></td>
+            <td ng-bind="::country.name"></td>
+            <td ng-bind="::country.lang"></td>
+        </tr>
+    </tbody>
+</table>

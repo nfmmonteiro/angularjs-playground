@@ -1,0 +1,20 @@
+{
+    "list": [
+        {
+            "name": "Portugal",
+            "lang": "PT"
+        },
+        {
+            "name": "Spain",
+            "lang": "ES"
+        },
+        {
+            "name": "France",
+            "lang": "FR"
+        },
+        {
+            "name": "United Kingdom",
+            "lang": "EN"
+        }
+    ]
+}
