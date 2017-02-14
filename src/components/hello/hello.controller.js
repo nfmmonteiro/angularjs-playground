@@ -1,6 +1,6 @@
 class HelloController {
 
-    /** @ngInject */
+    /*@ngInject*/
     constructor($log) {
         this.$log = $log;
         this.$log.log('HelloController was created!');

@@ -31,7 +31,7 @@ const config = {
             {
                 test: /\.js$/,
                 include: [ PATHS.srcDir ],
-                use: 'babel-loader'
+                use: ['ng-annotate-loader', 'babel-loader']
             },
             {
                 test: /\.html$/,
