@@ -1,7 +1,7 @@
 <div>
     <form>
-        <typeahead-component countries="$ctrl.countries" selected-country="$ctrl.selectedCountry"></typeahead-component>
+        <typeahead-component selected-country="$ctrl.selectedCountry" countries="$ctrl.countryList"></typeahead-component>
     </form>
     <div class="row" ng-bind="$ctrl.selectedCountry"></div>
-    <country-list-component countries="$ctrl.countries"></country-list-component>
+    <country-list-component countries="$ctrl.filteredCountries"></country-list-component>
 </div>

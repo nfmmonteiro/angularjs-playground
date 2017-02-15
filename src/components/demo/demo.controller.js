@@ -1,24 +1,24 @@
 class DemoController {
 
     /*@ngInject*/
-    constructor($scope, $log, countryDb) {
+    constructor($scope, $log, countryList) {
         this.$scope = $scope;
         this.$log = $log;
-        this.countryDb = countryDb;
+        this.countryList = countryList;
     }
 
     $onInit() {
         this.filterWatcher = this.$scope.$watch(() => this.selectedCountry, (newValue) => {
-            this.countries = (newValue ? this.filterCountries(newValue) : this.countryDb.list);
+            this.filteredCountries = (newValue ? this.filterCountries(newValue) : this.countryList);
         });
     }
 
     filterCountries(value) {
-        this.$log.log(`Filtering countries with ${this.selectedCountry}`);
+        this.$log.log(`Filtering countries with ${value}`);
         let filtered = [];
-        for (let index = 0; index < this.countryDb.list.length; index++) {
-            if (this.countryDb.list[index].name.toUpperCase().indexOf(value.toUpperCase()) !== -1) {
-                filtered.push(this.countryDb.list[index]);
+        for (let index = 0; index < this.countryList.length; index++) {
+            if (this.countryList[index].name.toUpperCase().indexOf(value.toUpperCase()) !== -1) {
+                filtered.push(this.countryList[index]);
             }
         }
         return filtered;

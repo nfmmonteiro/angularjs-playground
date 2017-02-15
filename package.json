@@ -28,6 +28,7 @@
     "bootstrap": "^3.3.7",
     "clean-webpack-plugin": "^0.1.15",
     "concurrently": "^3.3.0",
+    "country-db": "^0.2.0",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "file-loader": "^0.10.0",
