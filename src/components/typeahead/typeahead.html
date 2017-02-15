@@ -1,0 +1,4 @@
+<div class="form-group">
+    <label for="country">Filter by Country</label>
+    <input id="country" type="text" ng-model="$ctrl.selectedCountry" uib-typeahead="country.name for country in $ctrl.countries" class="form-control">
+</div>
