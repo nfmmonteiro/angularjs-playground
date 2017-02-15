@@ -1,14 +1,9 @@
-class CountryController {
+class CountryListController {
     /*@ngInject*/
-    constructor($log, countryDb) {
+    constructor($log) {
         this.$log = $log;
-        this.countryDb = countryDb;
-        this.$log.log('CountryController was created!');
-    }
-
-    $onInit() {
-        this.countries = this.countryDb.list;
+        this.$log.log('CountryListController was created!');
     }
 }
 
-export default CountryController;
+export default CountryListController;
